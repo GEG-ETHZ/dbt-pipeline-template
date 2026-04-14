@@ -1,0 +1,22 @@
+version: 2
+
+seeds:
+  - name: experiment_material_fluid_flowrate_01
+    description: "Raw experimental data recording fluid flow rates over time."
+    columns:
+      - name: timestamp
+        description: "The time at which the flow rate was recorded."
+      - name: flow_rate_inlet
+        description: "Measured inlet flow rate."
+
+  - name: experiment_material_fluid_pressure_01
+    description: "Raw experimental data recording multi-point fluid pressure."
+    columns:
+      - name: timestamp
+        description: "The time at which the pressure was recorded."
+      - name: p_inlet
+        description: "Pressure at the inlet."
+      - name: p_mid_3
+        description: "Pressure at the middle measurement point (3)."
+      - name: p_outlet
+        description: "Pressure at the outlet."

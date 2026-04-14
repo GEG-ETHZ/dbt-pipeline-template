@@ -1,0 +1,18 @@
+version: 2
+
+sources:
+  - name: example_lab_data
+    tables:
+      - name: experiment_material_fluid_pressure_01
+        columns:
+          - name: timestamp
+          - name: p_inlet
+          - name: p_mid_1
+          - name: p_mid_2
+          - name: p_mid_3
+          - name: p_outlet
+      - name: experiment_material_fluid_flowrate_01
+        columns:
+          - name: timestamp
+          - name: flow_rate_inlet
+          - name: flow_rate_outlet

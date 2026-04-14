@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: int_pressure_flow_joined
+    description: "Joins staging pressure and flow data on timestamp."
+    columns:
+      - name: recorded_at
+        description: "Standardized timestamp of the measurement."
+      - name: delta_p_hpa
+        description: "Calculated pressure drop (Inlet - Outlet) in hPa."
+
+  - name: fct_permeability
+    description: "The final fact table calculating relative permeability based on joined pressure and flow data."
+    columns:
+      - name: recorded_at
+        description: "Standardized timestamp of the measurement."
+        tests:
+          - unique
+          - not_null
+      - name: relative_permeability
+        description: "Calculated as flow_rate_inlet / delta_p_hpa."
+        tests:
+          - not_null

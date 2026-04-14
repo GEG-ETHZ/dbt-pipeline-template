@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_flow
+    description: "Staging model for fluid flowrate data."
+    columns:
+      - name: recorded_at
+        description: "The timestamp of the measurement."
+        tests:
+          - unique
+          - not_null
+      - name: flow_rate_inlet
+        description: "The inlet flow rate (interpolated and cleaned)."
+        tests:
+          - not_null
+
+  - name: stg_pressure
+    description: "Staging model for fluid pressure data."
+    columns:
+      - name: recorded_at
+        description: "The timestamp of the measurement."
+        tests:
+          - unique
+          - not_null
+      - name: p_inlet
+        description: "Inlet pressure in PSI."
+        tests:
+          - not_null

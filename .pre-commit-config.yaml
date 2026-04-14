@@ -1,0 +1,36 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  - repo: local
+    hooks:
+      - id: sqlfluff-fix
+        name: run sqlfluff fix
+        entry: uv run sqlfluff fix --force
+        language: system
+        types: [sql]
+        require_serial: true
+
+      - id: dbt-compile
+        name: dbt compile
+        entry: uv run dbt compile
+        language: system
+        pass_filenames: false
+        always_run: true
+
+  - repo: https://github.com/dbt-checkpoint/dbt-checkpoint
+    rev: v2.0.8
+    hooks:
+      - id: check-script-semicolon
+      - id: check-source-has-all-columns
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args: ['--baseline', '.secrets.baseline']
+        exclude: package.lock.json|uv.lock
