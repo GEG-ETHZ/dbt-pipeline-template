@@ -21,3 +21,21 @@ models:
         description: "Calculated as flow_rate_inlet / delta_p_hpa."
         tests:
           - not_null
+      - name: flow_rate_inlet
+        description: "The inlet flow rate (interpolated and cleaned)."
+        tests:
+          - not_null
+      - name: delta_p_hpa
+        description: "Calculated pressure drop (Inlet - Outlet) in hPa."
+      - name: p_inlet
+        description: "Inlet pressure in hPa."
+        tests:
+          - not_null
+      - name: p_outlet
+        description: "Outlet pressure in hPa."
+        tests:
+          - not_null
+      - name: p_mid_3_hpa
+        description: "Middle pressure in hPa."
+        tests:
+          - not_null

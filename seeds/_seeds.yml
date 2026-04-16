@@ -8,6 +8,11 @@ seeds:
         description: "The time at which the flow rate was recorded."
       - name: flow_rate_inlet
         description: "Measured inlet flow rate."
+      - name: flow_rate_outlet
+        description: "Measured outlet flow rate."
+    config:
+      meta:
+        pk: true
 
   - name: experiment_material_fluid_pressure_01
     description: "Raw experimental data recording multi-point fluid pressure."
@@ -16,7 +21,17 @@ seeds:
         description: "The time at which the pressure was recorded."
       - name: p_inlet
         description: "Pressure at the inlet."
+      - name: p_mid_1
+        description: "Pressure at the middle measurement point (1)."
+      - name: p_mid_2
+        description: "Pressure at the middle measurement point (2)."
       - name: p_mid_3
         description: "Pressure at the middle measurement point (3)."
       - name: p_outlet
         description: "Pressure at the outlet."
+    config:
+      meta:
+        pk: true
+tests:
+  - unique
+  - not_null

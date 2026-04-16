@@ -23,6 +23,14 @@ models:
           - unique
           - not_null
       - name: p_inlet
-        description: "Inlet pressure in PSI."
+        description: "Inlet pressure in hPa."
+        tests:
+          - not_null
+      - name: p_outlet
+        description: "Outlet pressure in hPa."
+        tests:
+          - not_null
+      - name: p_mid_3_hpa
+        description: "Middle pressure in hPa."
         tests:
           - not_null
